@@ -1,0 +1,53 @@
+{
+  "name": "worldcloud",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.9.11",
+    "@material-ui/icons": "^4.9.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
+    "moment": "^2.24.0",
+    "moment-duration-format": "^2.3.2",
+    "node-sass": "^4.13.1",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.0",
+    "react-bootstrap-sweetalert": "^5.1.9",
+    "react-dom": "^16.13.1",
+    "react-motion": "^0.5.2",
+    "react-redux": "^7.2.0",
+    "react-scripts": "3.4.1",
+    "react-text-collapse": "^0.5.2",
+    "react-web-media-player": "^1.1.5",
+    "react-wordcloud": "^1.2.2",
+    "reactjs-popup": "^1.5.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "retry-axios": "^2.1.2",
+    "video-react": "^0.14.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
