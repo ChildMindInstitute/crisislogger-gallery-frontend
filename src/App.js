@@ -26,10 +26,9 @@ class App extends Component {
 					<span style={{flexGrow: 1}}/>
 					<div style={{margin: 'auto', padding: 10}}>
 						<a href={"https://crisislogger.org/capture/choice"}
-						   className={'btn-primary btn btn-wide btn-lg mr-5'}
-						   style={{backgroundColor: '#0067a0', padding: '0.3rem 1rem'}}
+						   className={'mr-4'}
 						>
-						<span style={{color: '#fff', fontSize: 16}}>
+						<span style={{color: '#1b1b1b', fontSize: 16}}>
 							Share your thoughts
 						</span>
 						</a>
@@ -43,18 +42,22 @@ class App extends Component {
 					</div>
 				</div>
 
-				<div style={{display: 'flex', flexDirection: 'row', flex: 1, marginTop: 30, marginBottom: 30}}>
+				<div style={{display: 'flex', flexDirection: 'row', flex: 1, marginTop: 30}}>
 					{/*<span style={{width: 170, marginLeft: 50}}/>*/}
 
 					<span style={{color: '#6e6e6e', fontSize: 30, flex: 1}}>
 						CrisisLogger Gallery
 					</span>
-
 					{/*<span style={{width: 170, marginRight: 50, alignSelf: 'flex-end', color: '#1b1b1b', fontSize: 17, backgroundColor: '#fafafa', borderColor: '#3e3e3e', borderRadius: 20, borderWidth: 1, borderStyle: 'solid', paddingTop: 6, paddingBottom: 6}}>*/}
 					{/*	Dynamic*/}
 					{/*</span>*/}
 				</div>
+				<div style={{display: 'flex', flexDirection: 'row', flex: 1, marginBottom: 30}}>
 
+					<span style={{color: '#6e6e6e', fontSize: 14, flex: 1}}>
+						---- A selection of recordings posted publicly ----
+					</span>
+				</div>
 
 				<div style={{display: 'flex', flex: 1, flexWrap: 'wrap', justifyContent: 'center'}}>
 					{transcriptionsList.map((value, index) => {
