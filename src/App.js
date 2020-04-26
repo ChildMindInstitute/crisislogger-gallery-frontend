@@ -16,25 +16,31 @@ class App extends Component {
 
 	render() {
 		const {transcriptionsList} = this.props;
-		console.log(transcriptionsList);
 		return (
-			<div className="App" style={{paddingRight: 20, paddingLeft: 20, paddingTop: 20}}>
+			<div className="App" style={{paddingRight: 20, paddingLeft: 20}}>
 
-				<div style={{display: 'flex', flexDirection: 'row', flex: 1, paddingRight: 40, paddingLeft: 40}}>
-					<span style={{color: '#1b1b1b', fontSize: 22}}>
-						Crisislogger
-					</span>
+				<div style={{display: 'flex', flexDirection: 'row', paddingTop: 15, flex: 1, paddingRight: 40, paddingLeft: 40}}>
+					<a href="https://crisislogger.org">
+						<img alt="crisislogger" src="https://crisislogger.org/media/logos/CrisisLogger_logo_border.png" style={{maxHeight: 60}} />
+					</a>
 					<span style={{flexGrow: 1}}/>
-					<a href={"https://crisislogger.org/capture/choice"}>
-						<span style={{color: '#1b1b1b', fontSize: 22, marginRight: 40}}>
+					<div style={{margin: 'auto', padding: 10}}>
+						<a href={"https://crisislogger.org/capture/choice"}
+						   className={'btn-primary btn btn-wide btn-lg mr-5'}
+						   style={{backgroundColor: '#0067a0', padding: '0.3rem 1rem'}}
+						>
+						<span style={{color: '#fff', fontSize: 16}}>
 							Share your thoughts
 						</span>
-					</a>
-					<a href={"https://crisislogger.org/login"}>
-						<span style={{color: '#1b1b1b', fontSize: 22}}>
-							Login
-						</span>
-					</a>
+						</a>
+						<a
+							href={"https://crisislogger.org/login"}
+						>
+							<span style={{color: '#1b1b1b', fontSize: 16}}>
+								Login
+							</span>
+						</a>
+					</div>
 				</div>
 
 				<div style={{display: 'flex', flexDirection: 'row', flex: 1, marginTop: 30, marginBottom: 30}}>
@@ -52,11 +58,9 @@ class App extends Component {
 
 				<div style={{display: 'flex', flex: 1, flexWrap: 'wrap', justifyContent: 'center'}}>
 					{transcriptionsList.map((value, index) => {
-						console.log('test', 'test');
 						let isVideo = value.name.split(".")[1] === 'webm' || value.name.split(".")[1] === 'mkv';
-						console.log('test', isVideo);
 						return (
-							<div style={{margin: 20, width: 250}}>
+							<div style={{margin: 20, width: 250}} key={index}>
 								{/*// <Col xs={12} md={4} lg={3} xl={2}>*/}
 								<div style={{borderRadius: 14, overflow: 'hidden', backgroundColor: '#fafafa', boxShadow: '0px 0px 1px 0px rgba(0,0,0,0.35)',}}>
 

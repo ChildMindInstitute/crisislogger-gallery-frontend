@@ -36,7 +36,6 @@ export function getTranscriptions(page) {
 					// type: page === 1 ? FETCH_TRANSCRIPTIONS_FAIL : FETCH_TRANSCRIPTIONS_MORE_FAIL,
 					payload: error,
 				});
-				console.log(error);
 			});
 	};
 }
