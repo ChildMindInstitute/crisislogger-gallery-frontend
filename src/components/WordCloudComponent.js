@@ -40,7 +40,7 @@ class WordCloudComponent extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			showWordCloud: false,
+			showWordCloud: true,
 			open: false,
 		};	
 	}
@@ -100,10 +100,10 @@ class WordCloudComponent extends Component {
 						</DialogActions>
 					</Dialog>
 
-					<WordcloudIcon
+					{/* <WordcloudIcon
 						onClick={() => this.toggleShowWordCloud()}
 						style={{fontSize: 22, color: '#333', cursor: 'pointer'}}
-					/>
+					/> */}
 				</div>
 			</div>
 		);

@@ -12,26 +12,29 @@ import Nav from 'react-bootstrap/Nav'
 import Spinner from 'react-bootstrap/Spinner'
 class App extends Component {
 
+	constructor(props) {
+		super()
+		this.state ={ playing: true}
+		this.changePlayState = this.changePlayState.bind()
+	}
 	componentDidMount() {
 		this.props.getTranscriptions(1);
 	}
-
+	changePlayState = () => {
+		this.setState({playing: false})
+	}
 	render() {
 		const { transcriptionsList, transcriptionsLoading, transcriptionsError } = this.props;
 		return (
-			<div className="App" style={{ paddingRight: 20, paddingLeft: 20, }}>
+			<div className="App" >
 				<div className="container">
-					<Navbar collapseOnSelect expand="xl" bg="light" variant="light">
+					<Navbar collapseOnSelect={false} expand="xl" bg="light" variant="light">
 						<Navbar.Brand href="https://crisislogger.org">
 							<img alt="crisislogger" src="https://crisislogger.org/media/logos/CrisisLogger_logo_border.png" style={{ maxHeight: 50 }} />
 						</Navbar.Brand>
-						<Navbar.Toggle aria-controls="responsive-navbar-nav" />
-						<Navbar.Collapse id="responsive-navbar-nav " className="justify-content-end">
-							<Nav>
+						<Navbar.Collapse id="navbar-nav " className="justify-content-end">
+							<Nav >
 								<Nav.Link href="https://crisislogger.org/capture/choice">Share your thoughts</Nav.Link>
-								<Nav.Link eventKey={2} href="https://crisislogger.org/login">
-									Login
-								</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Navbar>
@@ -75,13 +78,15 @@ class App extends Component {
 										// <Player>
 										// 	<source src={"https://storage.googleapis.com/crisislogger_uploads/" + value.name}/>
 										// </Player>
-
+										
 										<ReactPlayer
 											width={250}
 											height={205}
-											playing={false}
 											style={{ margin: 0 }}
 											controls={true}
+											onReady={this.changePlayState}
+											playing={this.state.playing}
+											muted={false}
 											url={[
 												{ src: "https://storage.googleapis.com/crisislogger_uploads/" + value.name, type: 'video/' + videoExtension },
 											]}
@@ -109,7 +114,23 @@ class App extends Component {
 						null
 				}
 
+				<footer className="kt-footer  kt-grid__item kt-grid kt-grid--desktop kt-grid--ver-desktop" id="kt_footer">
+					<div className="container  kt-container--fluid ">
+						<div className="kt-footer__copyright" style={{width: '100%', paddingTop: 15}}>
+							<div className="row text-center footer-row" style={{width: '100%', justifyContent: 'space-around'}}>
+								<p className="" style={{fontSize: 14}}><a href="/privacy.html" style={{color: '#74788d'}}>Privacy</a></p>
+								<p className=" " style={{fontSize: 14, color: '#74788d'}}>©2020 Child Mind Institute</p>
+								<a href="https://childmind.org"><img className="third-party-logos" src="https://crisislogger.org/media/logos/CMI_spot_logo.jpg" alt="" style={{minHeight: 40}} /></a>
+								<a href="https://www.parents.com/"><img className="third-party-logos" src="https://crisislogger.org/media/logos/parents_magazine_logo.png" alt=""/></a>
+								<a href="https://www.nimh.nih.gov/index.shtml"><img className="third-party-logos" src="https://crisislogger.org/media/logos/nimh-logo.png" alt="" style={{minHeight: 30}}/></a>
+								<a href="https://www.openhumans.org/"><img className="third-party-logos" src="https://crisislogger.org/media/logos/open-humans.png" alt="" style={{maxHeight: 30}}/></a>
+								<a href="https://cri-paris.org"><img className="third-party-logos" src="https://crisislogger.org/media/logos/CRI.png" alt=""style={{minHeight: 50}} /></a>
+								<a href="https://mcgovern.mit.edu/"><img className="third-party-logos" src="https://crisislogger.org/media/logos/mcgovern_logo.png" alt="" style={{minHeight: 50, marginTop: -5}} /></a>
 
+							</div>
+						</div>
+					</div>
+				</footer>
 			</div>
 		);
 	}
