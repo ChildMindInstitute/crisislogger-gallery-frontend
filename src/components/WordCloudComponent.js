@@ -91,14 +91,19 @@ class WordCloudComponent extends Component {
 							</DialogContentText>
 						</DialogContent>
 						<DialogActions>
-							<Button onClick={() => this.closeModal()} color="primary">
+							<Button
+								onClick={() => this.closeModal()}
+								style={{color: '#ff8b8b'}}
+							>
 								Close
 							</Button>
 						</DialogActions>
 					</Dialog>
 
-
-					<WordcloudIcon style={{fontSize: 22, color: '#333', cursor: 'pointer'}} onClick={() => this.toggleShowWordCloud()}/>
+					<WordcloudIcon
+						onClick={() => this.toggleShowWordCloud()}
+						style={{fontSize: 22, color: '#333', cursor: 'pointer'}}
+					/>
 				</div>
 			</div>
 		);
