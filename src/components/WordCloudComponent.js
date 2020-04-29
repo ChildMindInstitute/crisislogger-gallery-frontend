@@ -79,9 +79,10 @@ class WordCloudComponent extends Component {
 						open={this.state.open}
 						fullWidth={true}
 						maxWidth={'lg'}
+						
 						scroll={'body'}
 					>
-						<DialogContent dividers={false}>
+						<DialogContent dividers={false} style={{borderRadius: 15}}>
 							<DialogContentText
 								style={{textAlign: 'justify', lineHeight: 1.2}}
 								id="scroll-dialog-description"

@@ -78,3 +78,6 @@ code {
   background-color: #ffffff !important;
   border-bottom: 1px solid #ffffff !important;
 }
+.MuiPaper-rounded {
+  border-radius: 15px !important;
+}
