@@ -16,6 +16,7 @@ export function getTranscriptions(page, referralCode = null) {
 		dispatch({type: FETCH_TRANSCRIPTIONS});
 
 		ApiInterface.instance.getTranscriptions(page, referralCode)
+
 			.then(response => {
 				let responseData = response.data;
 				let dataList = [];

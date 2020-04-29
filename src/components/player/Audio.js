@@ -26,6 +26,7 @@ function Audio({link}) {
 					console.log('time', time);
 					setClickedTime(time)
 				}}/>
+
 			</div>
 		</div>
 	);

@@ -5,20 +5,15 @@ const singleton = Symbol();
 const singletonEnforcer = Symbol();
 
 class ApiInterface {
-	static BASE_URL;
 	static BASE_URL_API;
 
 	constructor(enforcer) {
 		if (enforcer !== singletonEnforcer) {
 			throw new Error('Cannot construct singleton');
 		}
-		// if (__DEV__) {
-		// ApiInterface.BASE_URL = "http://0.0.0.0:8000/";
-		// ApiInterface.BASE_URL_API = "http://0.0.0.0:8000/api/";
-		// } else {
-		ApiInterface.BASE_URL = "http://back.crisislogger.care/";
+
 		ApiInterface.BASE_URL_API = "http://back.crisislogger.care/api/";
-		// }
+		// ApiInterface.BASE_URL_API = "https://crisislogger.org/api/";
 
 
 		this.session = axios.create({
@@ -43,11 +38,6 @@ class ApiInterface {
 					axios.defaults.timeout = axios.defaults.timeout + 500;
 				const cfg = raxConfig(err);
 				console.log(`Retry attempt #${cfg.currentRetryAttempt}`);
-				// try {
-				// 	console.info("Retrying request", err, raxConfig(err))
-				// } catch (e) {
-				// 	throw new Error("Error logging the retry of a request: " + e);
-				// }
 			},
 		};
 		raxAttach(this.session);

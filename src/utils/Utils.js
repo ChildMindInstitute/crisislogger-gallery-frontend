@@ -17,8 +17,7 @@ class Utils {
 		return false;
 	}
 
-	static getWords(string) {
-		let str = string;
+	static getWords(str) {
 		if (str === null) {
 			return [];
 		}
