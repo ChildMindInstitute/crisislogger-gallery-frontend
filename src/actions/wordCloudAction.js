@@ -10,12 +10,12 @@ import {
 import Utils from "../utils/Utils";
 
 
-export function getTranscriptions(page) {
+export function getTranscriptions(page, referralCode = null) {
 	return (dispatch) => {
 		// dispatch({type: page === 1 ? FETCH_TRANSCRIPTIONS : FETCH_TRANSCRIPTIONS_MORE,});
 		dispatch({type: FETCH_TRANSCRIPTIONS});
 
-		ApiInterface.instance.getTranscriptions(page)
+		ApiInterface.instance.getTranscriptions(page, referralCode)
 			.then(response => {
 				let responseData = response.data;
 				let dataList = [];

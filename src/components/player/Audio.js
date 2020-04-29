@@ -22,7 +22,10 @@ function Audio({link}) {
 					<Pause handleClick={() => setPlaying(false)}/> :
 					<Play handleClick={() => setPlaying(true)}/>
 				}
-				<Bar curTime={curTime} duration={duration} onTimeUpdate={(time) => setClickedTime(time)}/>
+				<Bar curTime={curTime} audioId={audioId} duration={duration} onTimeUpdate={(time) => {
+					console.log('time', time);
+					setClickedTime(time)
+				}}/>
 			</div>
 		</div>
 	);

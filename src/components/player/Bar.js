@@ -24,9 +24,12 @@ export default function Bar(props) {
 	}
 
 	function handleTimeDrag(e) {
+		console.log('time', calcClickedTime(e), duration, curTime);
+
 		onTimeUpdate(calcClickedTime(e));
 
 		const updateTimeOnMove = eMove => {
+			console.log('time', calcClickedTime(eMove), duration, curTime);
 			onTimeUpdate(calcClickedTime(eMove));
 		};
 

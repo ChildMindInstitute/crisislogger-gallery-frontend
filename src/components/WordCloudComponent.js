@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
+import ReactTextCollapse from "react-text-collapse";
 import ReactWordcloud from "react-wordcloud";
 import WordcloudIcon from '@material-ui/icons/CloudQueue';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
+import Popup from "reactjs-popup";
 
 const TEXT_COLLAPSE_OPTIONS = {
 	collapse: false, // default state when component rendered
@@ -37,14 +34,10 @@ const options = {
 
 
 class WordCloudComponent extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			showWordCloud: true,
-			open: false,
-		};	
-	}
-	
+	state = {
+		showWordCloud: false,
+	};
+
 	render() {
 		return (
 			<div style={{padding: 17, paddingBottom: 0}}>
@@ -68,43 +61,25 @@ class WordCloudComponent extends Component {
 
 
 				<div style={{display: 'flex', justifyContent: 'space-between', marginTop: 5, marginBottom: 5}}>
-					<span 
-						onClick={() => this.openModal()}
-						style={{fontSize: 14, cursor: 'pointer', color: '#6e6e6e', fontFamily: 'sans-serif',}}
-					>
-						show more
-					</span>
 
-					<Dialog
-						open={this.state.open}
-						fullWidth={true}
-						maxWidth={'lg'}
-						
-						scroll={'body'}
+					<Popup
+						trigger={<span style={{fontSize: 14, cursor: 'pointer', color: '#6e6e6e', fontFamily: 'sans-serif',}}>show more</span>}
+						modal
+						closeOnDocumentClick
+						contentStyle={{borderRadius: 14, backgroundColor: '#fafafa', fontFamily: 'sans-serif', boxShadow: '0px 0px 1px 0px rgba(0,0,0,0.35)', maxHeight: '95vh', overflow: 'scroll'}}
 					>
-						<DialogContent dividers={false} style={{borderRadius: 15}}>
-							<DialogContentText
-								style={{textAlign: 'justify', lineHeight: 1.2}}
-								id="scroll-dialog-description"
-								tabIndex={-1}
-							>
-								{this.props.text}
-							</DialogContentText>
-						</DialogContent>
-						<DialogActions>
-							<Button
-								onClick={() => this.closeModal()}
-								style={{color: '#ff8b8b'}}
-							>
-								Close
-							</Button>
-						</DialogActions>
-					</Dialog>
+						{close => (
+							<div>
+								<p style={{textAlign: 'justify', color: '#6e6e6e', lineHeight: 1.2, padding: 20,}}>
+									{this.props.text}
+								</p>
 
-					{/* <WordcloudIcon
-						onClick={() => this.toggleShowWordCloud()}
-						style={{fontSize: 22, color: '#333', cursor: 'pointer'}}
-					/> */}
+								<button className={"btn"} onClick={() => close()}>Close
+								</button>
+							</div>
+						)}
+					</Popup>
+					<WordcloudIcon style={{fontSize: 22, color: '#333', cursor: 'pointer'}} onClick={() => this.toggleShowWordCloud()}/>
 				</div>
 			</div>
 		);
@@ -113,18 +88,6 @@ class WordCloudComponent extends Component {
 	toggleShowWordCloud() {
 		this.setState({
 			showWordCloud: !this.state.showWordCloud,
-		})
-	}
-
-	openModal() {
-		this.setState({
-			open: true,
-		})
-	}
-
-	closeModal() {
-		this.setState({
-			open: false,
 		})
 	}
 
