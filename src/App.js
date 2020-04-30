@@ -52,7 +52,7 @@ class App extends Component {
 						</Navbar.Brand>
 						<Navbar.Collapse id="navbar-nav " className="justify-content-end">
 							<Nav>
-								<Nav.Link href="https://crisislogger.org/capture/choice">Share your thoughts</Nav.Link>
+								<Nav.Link style={{fontSize: 16}} href="https://crisislogger.org/capture/choice">Share your thoughts</Nav.Link>
 							</Nav>
 						</Navbar.Collapse>
 					</Navbar>
