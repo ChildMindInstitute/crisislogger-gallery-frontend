@@ -92,7 +92,7 @@ class WordCloudComponent extends Component {
 								id="scroll-dialog-description"
 								tabIndex={-1}
 							>
-								{this.props.text}
+								"{this.props.text}"
 							</DialogContentText>
 						</DialogContent>
 						<DialogActions>
