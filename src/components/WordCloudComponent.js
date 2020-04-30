@@ -105,10 +105,10 @@ class WordCloudComponent extends Component {
 						</DialogActions>
 					</Dialog>
 
-					{/* <WordcloudIcon
+					<WordcloudIcon
 						onClick={() => this.toggleShowWordCloud()}
 						style={{fontSize: 22, color: '#333', cursor: 'pointer'}}
-					/> */}
+					/>
 				</div>
 			</div>
 		);
