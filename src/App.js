@@ -45,11 +45,11 @@ class App extends Component {
 				{/*<HeaderComponent/>*/}
 
 				<div className="container">
-					<Navbar collapseOnSelect={false} expand="xl" bg="light" variant="light">
-						<Navbar.Brand href="https://crisislogger.org">
+					<Navbar collapseOnSelect={false} expand="xl" bg="light" variant="light" style={{display:'flex'}}>
+						<Navbar.Brand href="https://crisislogger.org" style={{flex: 1}}>
 							<img alt="crisislogger" src="https://crisislogger.org/media/logos/CrisisLogger_logo_border.png" style={{maxHeight: 50}}/>
 						</Navbar.Brand>
-						<Navbar.Collapse id="navbar-nav " className="justify-content-end">
+						<Navbar.Collapse id="navbar-nav " className="justify-content-end" style={{flex: 1}}>
 							<Nav>
 								<Nav.Link style={{fontSize: 16}} href="https://crisislogger.org/capture/choice">Share your thoughts</Nav.Link>
 							</Nav>
@@ -132,6 +132,7 @@ class App extends Component {
 											// 	video={"https://storage.googleapis.com/crisislogger_uploads/" + value.name}
 											// />
 											<ReactPlayer
+												width={'100%'}
 												height={205}
 												style={{margin: 0}}
 												controls={true}
