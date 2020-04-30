@@ -46,7 +46,7 @@ class App extends Component {
 
 				<div className="container">
 					<Navbar collapseOnSelect={false} expand="xl" bg="light" variant="light" style={{display:'flex'}}>
-						<Navbar.Brand href="https://crisislogger.org" style={{flex: 1}}>
+						<Navbar.Brand href="https://crisislogger.org" style={{flex: 1, textAlign: 'left'}}>
 							<img alt="crisislogger" src="https://crisislogger.org/media/logos/CrisisLogger_logo_border.png" style={{maxHeight: 50}}/>
 						</Navbar.Brand>
 						<Navbar.Collapse id="navbar-nav " className="justify-content-end" style={{flex: 1}}>
@@ -136,6 +136,7 @@ class App extends Component {
 												height={205}
 												style={{margin: 0}}
 												controls={true}
+												// onBufferEnd={this.changePlayState}
 												// onReady={this.changePlayState}
 												// playing={this.state.playing}
 												muted={false}
@@ -183,8 +184,8 @@ class App extends Component {
 						<div className="container  kt-container--fluid ">
 							<div className="kt-footer__copyright" style={{width: '100%', paddingTop: 15}}>
 								<div className="row text-center footer-row" style={{width: '100%', justifyContent: 'space-around'}}>
-									<p className="" style={{fontSize: 14}}><a href="/privacy.html" style={{color: '#74788d'}}>Privacy</a></p>
-									<p className=" " style={{fontSize: 14, color: '#74788d'}}>©2020 Child Mind Institute</p>
+									<p className="" style={{fontSize: '1 rem'}}><a href="/privacy.html" style={{color: '#74788d'}}>Privacy</a></p>
+									<p className=" " style={{fontSize: '1 rem', color: '#74788d'}}>©2020 Child Mind Institute</p>
 									<a href="https://childmind.org"><img className="third-party-logos" src="https://crisislogger.org/media/logos/CMI_spot_logo.jpg" alt="" style={{minHeight: 40}}/></a>
 									<a href="https://www.parents.com/"><img className="third-party-logos" src="https://crisislogger.org/media/logos/parents_magazine_logo.png" alt=""/></a>
 									<a href="https://www.nimh.nih.gov/index.shtml"><img className="third-party-logos" src="https://crisislogger.org/media/logos/nimh-logo.png" alt="" style={{minHeight: 30}}/></a>
