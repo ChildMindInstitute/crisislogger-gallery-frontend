@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './App.css';
 import {getTranscriptions} from "./actions";
-import ReactWebMediaPlayer from 'react-web-media-player';
 import Audio from "./components/player/Audio";
 import WordCloudComponent from "./components/WordCloudComponent";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -133,7 +132,6 @@ class App extends Component {
 											// 	video={"https://storage.googleapis.com/crisislogger_uploads/" + value.name}
 											// />
 											<ReactPlayer
-												width={250}
 												height={205}
 												style={{margin: 0}}
 												controls={true}
