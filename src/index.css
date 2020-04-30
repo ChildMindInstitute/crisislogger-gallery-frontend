@@ -82,3 +82,12 @@ code {
 .MuiPaper-rounded {
   border-radius: 15px !important;
 }
+.navbar{
+  padding: unset !important;
+}
+.navbar-nav .nav-link {
+  padding: 1rem 1.65rem !important;
+}
+.navbar-brand {
+  padding: unset !important;
+}

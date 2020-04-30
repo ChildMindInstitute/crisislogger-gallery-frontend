@@ -47,7 +47,7 @@ class App extends Component {
 				<div className="container">
 					<Navbar collapseOnSelect={false} expand="xl" bg="light" variant="light" style={{display:'flex'}}>
 						<Navbar.Brand href="https://crisislogger.org" style={{flex: 1, textAlign: 'left'}}>
-							<img alt="crisislogger" src="https://crisislogger.org/media/logos/CrisisLogger_logo_border.png" style={{maxHeight: 50}}/>
+							<img alt="crisislogger" src="https://crisislogger.org/media/logos/CrisisLogger_logo_border.png" style={{maxHeight: 48}}/>
 						</Navbar.Brand>
 						<Navbar.Collapse id="navbar-nav " className="justify-content-end" style={{flex: 1}}>
 							<Nav>
