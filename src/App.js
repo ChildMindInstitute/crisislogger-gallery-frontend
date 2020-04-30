@@ -78,7 +78,7 @@ class App extends Component {
 
 					</div>
 
-
+					{/*
 					<Col xs={12} md={6} lg={4} xl={3}>
 						<div>
 							<InputGroup className="mb-3">
@@ -97,6 +97,7 @@ class App extends Component {
 							</InputGroup>
 						</div>
 					</Col>
+					*/}
 
 					<div style={{display: 'flex', flex: 1, flexWrap: 'wrap', justifyContent: 'center'}}>
 						<div>
