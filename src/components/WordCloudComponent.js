@@ -25,7 +25,7 @@ const TEXT_COLLAPSE_OPTIONS = {
 const options = {
 	colors: ['#6e6e6e'],
 	enableTooltip: false,
-	deterministic: false,
+	deterministic: true,
 	fontStyle: 'normal',
 	fontWeight: 'normal',
 	fontSizes: [15, 30],

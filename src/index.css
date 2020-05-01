@@ -103,3 +103,8 @@ code {
 .mobile-hide {
   display: show;
 }
+.default-outline-btn {
+  background-color: #ffffff;
+  border: 1px solid #D3D3D3;
+  color: #D3D3D3;
+}

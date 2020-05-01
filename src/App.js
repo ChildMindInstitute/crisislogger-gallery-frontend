@@ -26,7 +26,7 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		this.props.getTranscriptions(1, this.state.referralCode);
+		this.props.getTranscriptions(1, this.state.searchTxt);
 	}
 
 	changePlayState = () => {
@@ -73,11 +73,11 @@ class App extends Component {
 					</span>
 
 					</div>
-					<Col xs={12} md={6} lg={4} xl={3}>
+					<Col xs={12} md={6} lg={4} xl={3} style={{padding: 'unset'}}>
 						<div>
 							<InputGroup className="mb-3">
 								<FormControl
-									placeholder="Search"
+									placeholder=""
 									aria-label="search"
 									aria-describedby="basic-addon2"
 									value={this.state.searchTxt}
@@ -86,7 +86,7 @@ class App extends Component {
 									}}
 								/>
 								<InputGroup.Append>
-									<Button onClick={() => this.search()} variant="outline-primary">Search</Button>
+									<Button onClick={() => this.search()} className="default-outline-btn" variant="outline-default">Search</Button>
 								</InputGroup.Append>
 							</InputGroup>
 						</div>
@@ -215,6 +215,10 @@ class App extends Component {
 
 
 	search() {
+		if(!this.state.searchTxt.length)
+		{
+			return true;
+		}
 		this.props.getTranscriptions(1, this.state.searchTxt);
 	}
 
