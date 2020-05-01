@@ -64,6 +64,12 @@ code {
     margin-top: 15px !important;
     font-size: 16px;
   }
+  .mobile-show {
+    display: block !important;
+  }
+  .mobile-hide {
+    display: none !important;
+  }
   .third-party-logos {
     margin: 20px auto !important;
   }
@@ -90,4 +96,10 @@ code {
 }
 .navbar-brand {
   padding: unset !important;
+}
+.mobile-show {
+  display: none;
+}
+.mobile-hide {
+  display: show;
 }

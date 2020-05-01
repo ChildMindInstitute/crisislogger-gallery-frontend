@@ -36,7 +36,6 @@ class ApiInterface {
 				if (axios.defaults.timeout < 8000)
 					axios.defaults.timeout = axios.defaults.timeout + 500;
 				const cfg = raxConfig(err);
-				console.log(`Retry attempt #${cfg.currentRetryAttempt}`);
 			},
 		};
 		raxAttach(this.session);
@@ -53,7 +52,6 @@ class ApiInterface {
 		);
 
 		this.session.interceptors.request.use(request => {
-			console.log('OkHttp: Starting Request', request);
 			return request;
 		});
 
@@ -81,7 +79,7 @@ class ApiInterface {
 	remove = (...params) => this.session.delete(...params);
 
 
-	getTranscriptions = (page, referralCode) => this.session.get('transcriptions', {params: {page, referralCode}});
+	getTranscriptions = (page, searchTxt) => this.session.get('transcriptions', {params: {page, searchTxt}});
 
 }
 

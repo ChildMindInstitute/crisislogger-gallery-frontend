@@ -2,28 +2,24 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './App.css';
 import {getTranscriptions} from "./actions";
-import Audio from "./components/player/Audio";
 import WordCloudComponent from "./components/WordCloudComponent";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
-import HeaderComponent from "./components/HeaderComponent";
-import FooterComponent from "./components/FooterComponent";
 import Row from "react-bootstrap/Row";
+import Alert from "react-bootstrap/Alert";
 import ReactPlayer from 'react-player'
-import {Player} from 'video-react';
-import ReactTextCollapse from 'react-text-collapse'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Spinner from 'react-bootstrap/Spinner'
 
 class App extends Component {
 
-	constructor(props) {
+	constructor() {
 		super()
 		this.state = {
-			'referralCode': '',
+			searchTxt: '',
 			playing: false
 		};
 		this.changePlayState = this.changePlayState.bind()
@@ -49,6 +45,9 @@ class App extends Component {
 						<Navbar.Brand href="https://crisislogger.org" style={{flex: 1, textAlign: 'left'}}>
 							<img alt="crisislogger" src="https://crisislogger.org/media/logos/CrisisLogger_logo_border.png" style={{maxHeight: 48}}/>
 						</Navbar.Brand>
+						<span style={{color: '#6e6e6e', fontSize: 30, flex: 1}} className={'mobile-hide'}>
+							CrisisLogger Gallery
+						</span>
 						<Navbar.Collapse id="navbar-nav " className="justify-content-end" style={{flex: 1}}>
 							<Nav>
 								<Nav.Link style={{fontSize: 16}} href="https://crisislogger.org/capture/choice">Share your thoughts</Nav.Link>
@@ -61,11 +60,9 @@ class App extends Component {
 
 					<div style={{display: 'flex', flexDirection: 'row', flex: 1, marginTop: 30}}>
 						{/*<span style={{width: 170, marginLeft: 50}}/>*/}
-
-						<span style={{color: '#6e6e6e', fontSize: 30, flex: 1}}>
-						CrisisLogger Gallery
-					</span>
-
+						<span style={{color: '#6e6e6e', fontSize: 30, flex: 1}} className={'mobile-show'}>
+							CrisisLogger Gallery
+						</span>
 					</div>
 
 					<div style={{display: 'flex', flexDirection: 'row', flex: 1, marginBottom: 30}}>
@@ -76,27 +73,25 @@ class App extends Component {
 					</span>
 
 					</div>
-
-					{/*
 					<Col xs={12} md={6} lg={4} xl={3}>
 						<div>
 							<InputGroup className="mb-3">
 								<FormControl
-									placeholder="Referral"
-									aria-label="Referral"
+									placeholder="Search"
+									aria-label="search"
 									aria-describedby="basic-addon2"
-									value={this.state.referralCode}
-									onChange={(referralCode) => {
-										this.setState({referralCode: referralCode.target.value})
+									value={this.state.searchTxt}
+									onChange={(e) => {
+										this.setState({searchTxt: e.target.value})
 									}}
 								/>
 								<InputGroup.Append>
-									<Button onClick={() => this.searchReferralCode()} variant="outline-secondary">Search</Button>
+									<Button onClick={() => this.search()} variant="outline-primary">Search</Button>
 								</InputGroup.Append>
 							</InputGroup>
 						</div>
 					</Col>
-					*/}
+					
 
 					<div style={{display: 'flex', flex: 1, flexWrap: 'wrap', justifyContent: 'center'}}>
 						<div>
@@ -105,13 +100,17 @@ class App extends Component {
 							}
 						</div>
 					</div>
-
+					{
+						transcriptionsError? 
+						<Alert color="warning">
+							{'Something went wrong, please reload the page again'}
+						</Alert>
+						: null
+					}
 					<Row>
 						{transcriptionsList.map((value, index) => {
-							console.log('test', 'test');
 							let isVideo = value.name.split(".")[1] === 'webm' || value.name.split(".")[1] === 'mkv' || value.name.split(".")[1] === 'mp4';
 							let videoExtension = value.name.split(".")[1];
-							console.log('test', isVideo);
 							return (
 								<Col xs={12} sm={6} md={4} lg={3} xl={3} style={{marginTop: 20}} key={index}>
 									<div style={{borderRadius: 14, overflow: 'hidden', backgroundColor: '#fafafa', boxShadow: '0px 0px 1px 0px rgba(0,0,0,0.35)',}}>
@@ -215,8 +214,8 @@ class App extends Component {
 	}
 
 
-	searchReferralCode() {
-		this.props.getTranscriptions(1, this.state.referralCode);
+	search() {
+		this.props.getTranscriptions(1, this.state.searchTxt);
 	}
 
 
