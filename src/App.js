@@ -5,6 +5,7 @@ import {getTranscriptions} from "./actions";
 import WordCloudComponent from "./components/WordCloudComponent";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
+import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -74,7 +75,7 @@ class App extends Component {
 
 					</div>
 					<Col xs={12} md={6} lg={4} xl={3} style={{padding: 'unset'}}>
-						<div>
+						<div >
 							<InputGroup className="mb-3">
 								<FormControl
 									placeholder=""
@@ -86,7 +87,7 @@ class App extends Component {
 									}}
 								/>
 								<InputGroup.Append>
-									<Button onClick={() => this.search()} className="default-outline-btn" variant="outline-default">Search</Button>
+									<Button onClick={() => this.search()} className="default-outline-btn" variant="outline-default">Search</Button >
 								</InputGroup.Append>
 							</InputGroup>
 						</div>
@@ -215,10 +216,6 @@ class App extends Component {
 
 
 	search() {
-		if(!this.state.searchTxt.length)
-		{
-			return true;
-		}
 		this.props.getTranscriptions(1, this.state.searchTxt);
 	}
 
