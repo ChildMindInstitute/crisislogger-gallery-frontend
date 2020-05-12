@@ -131,7 +131,7 @@ class App extends Component {
 											// 	style={{margin: 0}}
 											// 	video={"https://storage.googleapis.com/crisislogger_uploads/" + value.name}
 											// />
-											<ReactPlayer
+											value.name != 'null' && <ReactPlayer
 												width={'100%'}
 												height={205}
 												style={{margin: 0}}
@@ -145,7 +145,7 @@ class App extends Component {
 												]}
 											/>
 											:
-											<div>
+											value.name != 'null' && <div>
 												{/*<Audio link={"https://storage.googleapis.com/crisislogger_uploads/" + value.name}/>*/}
 												{/*<ReactWebMediaPlayer*/}
 												{/*	width={'100%'}*/}

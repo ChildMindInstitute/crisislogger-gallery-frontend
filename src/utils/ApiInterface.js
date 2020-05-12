@@ -12,7 +12,7 @@ class ApiInterface {
 			throw new Error('Cannot construct singleton');
 		}
 
-		ApiInterface.BASE_URL_API = "https://crisislogger.org/api/";
+		ApiInterface.BASE_URL_API = "http://crisislogger.org/api/";
 
 
 		this.session = axios.create({
