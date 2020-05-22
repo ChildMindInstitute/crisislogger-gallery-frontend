@@ -33,7 +33,18 @@ class App extends Component {
 	changePlayState = () => {
 		this.setState({playing: false})
 	}
-
+	getDate(value)
+	{
+		let date;
+		if (typeof value =='string')
+		{
+			date = new Date(value);
+		}
+		else {
+			date = new Date();
+		}
+		return date.toDateString();
+	}
 	render() {
 		const {transcriptionsList, transcriptionsLoading, transcriptionsError} = this.props;
 		return (
@@ -131,7 +142,7 @@ class App extends Component {
 											// 	style={{margin: 0}}
 											// 	video={"https://storage.googleapis.com/crisislogger_uploads/" + value.name}
 											// />
-											value.name != 'null' && <ReactPlayer
+											value.name != 'null' &&  value.share === 1 &&  <ReactPlayer
 												width={'100%'}
 												height={205}
 												style={{margin: 0}}
@@ -145,7 +156,7 @@ class App extends Component {
 												]}
 											/>
 											:
-											value.name != 'null' && <div>
+											value.name != 'null' &&  value.share === 1 &&  <div>
 												{/*<Audio link={"https://storage.googleapis.com/crisislogger_uploads/" + value.name}/>*/}
 												{/*<ReactWebMediaPlayer*/}
 												{/*	width={'100%'}*/}
@@ -156,6 +167,9 @@ class App extends Component {
 												<ReactPlayer height={50} width={'100%'} url={"https://storage.googleapis.com/crisislogger_uploads/" + value.name} controls={true}/>
 											</div>
 										}
+										<div style={{flex: 1, marginTop: 10}}>
+											<p>{this.getDate(value.created_at)}</p>
+										</div>
 									</div>
 								</Col>
 							)
